@@ -6,13 +6,13 @@
 
 using namespace std;
 
-class Persona
+class DatosPersona
 {
 private:
 	int opc, opc2;
 	string nombre, nombre2, edad, edad2, genero, genero2, curp, curp2, domicilio, domicilio2, fechaNac, fechaNac2;
 public:
-	Persona(int opc, int opc2, string nombre, string nombre2, string edad, string edad2, string genero, string genero2, 
+	DatosPersona(int opc, int opc2, string nombre, string nombre2, string edad, string edad2, string genero, string genero2, 
 		    string curp, string curp2, string domicilio, string domicilio2, string fechaNac, string fechaNac2)
 	{
 		this->opc = opc;
@@ -325,14 +325,14 @@ public:
 			cout << "\n";
 			cout << "Hay datos que no coinciden entre la INE y el Pasaporte?\n1.Si\n2.No" << endl;
 			cin >> opc;
-			Persona* persona;
+			DatosPersona* persona;
 			switch (opc)
 			{
 			case 1:
 				do {
-					cout << "\nEn que parte no coinciden?\n1.Nombre\n2.Edad\n3.Genero\n4.Curp\n5.Domicilio\n6.Fecha de nacimiento\n7.Salir" << endl;
+					cout << "\nQue dato no coincide?\n1.Nombre\n2.Edad\n3.Genero\n4.Curp\n5.Domicilio\n6.Fecha de nacimiento\n7.Salir" << endl;
 					cin >> opc2;
-					persona = new Persona(opc2, 0, NombreINE[k], NombrePasaporte[p[0]], EdadINE[k], EdadPasaporte[p[1]], GeneroINE[k], GeneroPasaporte[p[2]], CurpINE[k], CurpPasaporte[p[3]], DomINE[k], DomPasaporte[p[4]], FechaNacINE[k], FechaNacPasaporte[p[5]]);
+					persona = new DatosPersona(opc2, 0, NombreINE[k], NombrePasaporte[p[0]], EdadINE[k], EdadPasaporte[p[1]], GeneroINE[k], GeneroPasaporte[p[2]], CurpINE[k], CurpPasaporte[p[3]], DomINE[k], DomPasaporte[p[4]], FechaNacINE[k], FechaNacPasaporte[p[5]]);
 					pointA += persona->Validar();
 				} while (opc2 <= 0 || opc2 >= 8); 
 				if (opc2 == 7)
@@ -344,7 +344,7 @@ public:
 					do {
 						cout << "\nHay otro dato que no coincida?\n1.Nombres\n2.Edad\n3.Genero\n4.Curp\n5.Domicilio\n6.Fecha de nacimiento\n7. No y siguiente...." << endl;
 						cin >> opc2;
-						persona = new Persona(opc2, 0, NombreINE[k], NombrePasaporte[p[0]], EdadINE[k], EdadPasaporte[p[1]], GeneroINE[k], GeneroPasaporte[p[2]], CurpINE[k], CurpPasaporte[p[3]], DomINE[k], DomPasaporte[p[4]], FechaNacINE[k], FechaNacPasaporte[p[5]]);
+						persona = new DatosPersona(opc2, 0, NombreINE[k], NombrePasaporte[p[0]], EdadINE[k], EdadPasaporte[p[1]], GeneroINE[k], GeneroPasaporte[p[2]], CurpINE[k], CurpPasaporte[p[3]], DomINE[k], DomPasaporte[p[4]], FechaNacINE[k], FechaNacPasaporte[p[5]]);
 						pointA += persona->Validar();
 					} while (opc2 != 7);
 					system("pause");
@@ -352,20 +352,20 @@ public:
 				}
 				cout << "\nAprobar acceso a la frontera:\n1.Si\n2.No\n" << endl;
 				cin >> opc3;
-				Persona* persona2;
-				persona2 = new Persona(0, opc3, NombreINE[k], NombrePasaporte[p[0]], EdadINE[k], EdadPasaporte[p[1]], GeneroINE[k], GeneroPasaporte[p[2]], CurpINE[k], CurpPasaporte[p[3]], DomINE[k], DomPasaporte[p[4]], FechaNacINE[k], FechaNacPasaporte[p[5]]);
+				DatosPersona* persona2;
+				persona2 = new DatosPersona(0, opc3, NombreINE[k], NombrePasaporte[p[0]], EdadINE[k], EdadPasaporte[p[1]], GeneroINE[k], GeneroPasaporte[p[2]], CurpINE[k], CurpPasaporte[p[3]], DomINE[k], DomPasaporte[p[4]], FechaNacINE[k], FechaNacPasaporte[p[5]]);
 				pointT += persona2->Validacion();
 				system("cls");
 				break;
 			case 2:
 				cout << "\nAprobar acceso a la frontera:\n1.Si\n2.No\n" << endl;
 				cin >> opc3;
-				persona2 = new Persona(0, opc3, NombreINE[k], NombrePasaporte[p[0]], EdadINE[k], EdadPasaporte[p[1]], GeneroINE[k], GeneroPasaporte[p[2]], CurpINE[k], CurpPasaporte[p[3]], DomINE[k], DomPasaporte[p[4]], FechaNacINE[k], FechaNacPasaporte[p[5]]);
+				persona2 = new DatosPersona(0, opc3, NombreINE[k], NombrePasaporte[p[0]], EdadINE[k], EdadPasaporte[p[1]], GeneroINE[k], GeneroPasaporte[p[2]], CurpINE[k], CurpPasaporte[p[3]], DomINE[k], DomPasaporte[p[4]], FechaNacINE[k], FechaNacPasaporte[p[5]]);
 				pointT += persona2->Validacion();
 				break;
 			default:
 				system("cls");
-				cout << "Error debes colocar un numero correspondiente a la lista y al proceso que quieras realizar";
+				cout << "Opcion no valida";
 				cout << "\n\n";
 			}
 			system("cls");
